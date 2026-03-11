@@ -67,7 +67,7 @@ docker run -p 8080:8080 livestock-backend
 
 - Or run from Visual Studio:
   - Select the **Docker** launch profile for the `LiveStock` project.
-  - Press **F5** – Visual Studio builds the image, creates a container, and maps container port `8080` to a random host port (shown in the Containers window).
+  - Press **F5**  Visual Studio builds the image, creates a container, and maps container port `8080` to a random host port (shown in the Containers window).
   - Use that host port (for example `http://localhost:32792`) from the frontend for API and SignalR calls.
 
 - Containerize **backend + frontend together** using `docker-compose.yml`:
