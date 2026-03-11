@@ -1,0 +1,24 @@
+# Ignore Node.js dependencies
+node_modules/
+InventoryApp-frontend/node_modules/
+
+# Ignore frontend build artifacts
+InventoryApp-frontend/build/
+InventoryApp-frontend/dist/
+
+# Ignore .NET build output
+bin/
+obj/
+LiveStock/bin/
+LiveStock/obj/
+LiveStockBL/bin/
+LiveStockBL/obj/
+
+# Ignore compiled libraries and symbols
+*.dll
+*.pdb
+
+# Ignore user-specific and cache files
+*.user
+*.cache
+
