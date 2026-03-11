@@ -29,8 +29,8 @@ namespace LiveStockBL.Services
 
             foreach (var stock in _stocks)
             {
-                // Generate a random change between -5 and +5
-                stock.Quantity = Math.Clamp(stock.Quantity + rand.Next(1, 11), 0, 200);
+                // Generate a random change between 0 and 300
+                stock.Quantity = rand.Next(0, 201);
             }
 
             return _stocks;

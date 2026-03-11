@@ -22,3 +22,5 @@ LiveStockBL/obj/
 *.user
 *.cache
 
+/.vs/InventoryApp/CopilotIndices
+/.vs/InventoryApp/FileContentIndex
