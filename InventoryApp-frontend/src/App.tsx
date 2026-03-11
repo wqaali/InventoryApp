@@ -7,7 +7,7 @@ function App() {
   return (
     <div style={{ padding: 20 }}>
 
-      <h2>Live Stock Dashboard</h2>
+      <h2>Live Inventory Dashboard</h2>
 
       <StockGrid />
 
