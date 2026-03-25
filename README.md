@@ -1,6 +1,6 @@
 # InventoryApp
 
-InventoryApp is a sample **inventory tracking system** consisting of:
+InventoryApp is a sample Technical Assignment **inventory tracking system** consisting of:
 
 - **Backend (`LiveStock`)**: ASP.NET Core 8.0 API plus SignalR hub for live stock updates.
 - **Business layer (`LiveStockBL`)**: Domain models and services for stock operations.
