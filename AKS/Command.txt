@@ -1,0 +1,60 @@
+
+az login --tenant e156bffc-5023-4c62-a5d1-2fa5482bf73a
+
+-> Create Resource Group
+az group create --name inventoryappresource --location "South India"
+resourcegroup: inventoryappresource
+
+Docker is an open-source platform for developing, shipping, and running applications using containers.
+ It packages an application and all its dependencies (code, runtime, system tools, libraries, and settings) 
+ into a single, standardized, isolated unit, ensuring it runs consistently across any environment, from a developer's laptop to the cloud.
+ 
+Kubernetes is an open-source container orchestration platform. It helps in automating the deployment, 
+scaling, and management of containerized applications. For example, if I have multiple Docker containers running across servers,
+Kubernetes ensures they are running properly, can scale them up or down based on load, and can automatically recover if something fails.
+
+-> Created Container Registry
+az acr create --resource-group inventoryappresource --name waainventoryacr --sku Basic
+waainventoryacr.azurecr.io
+az provider register --namespace Microsoft.Insights --wait; az provider register --namespace Microsoft.OperationalInsights --wait;  az provider register --namespace Microsoft.ContainerService --wait;  az provider register --namespace Microsoft.Network --wait;  az provider register --namespace Microsoft.Compute --wait;  az provider register --namespace Microsoft.OperationsManagement --wait;  az provider register --namespace Microsoft.Authorization --wait;  az provider register --namespace Microsoft.Storage --wait;
+
+->akscluster: inventory-aks-cluster
+az aks create --resource-group inventoryappresource --name inventory-aks-cluster --node-count 1 --node-vm-size Standard_B2s --enable-addons monitoring --generate-ssh-keys
+
+->To get the configruation details of cluster
+az aks get-credentials --resource-group inventoryappresource --name inventory-aks-cluster
+
+-> Kubectl command
+kubectl get no
+kubectl get po
+Kubectl get namespaces
+
+->login Contairner Registry
+az acr login --name waainventoryacr
+
+-> Build Image
+docker build -t inventory-demo-backend:latest -f ./folderName/Dockerfile .
+
+-> Tag Docker Image
+docker tag inventory-demo-backend:latest waainventoryacr.azurecr.io/inventory-demo-backend:latest
+
+-> Push Docker Image
+docker push waainventoryacr.azurecr.io/inventory-demo-backend:latest
+
+-> Attach Container Registry With AKS Cluster I prefer to do it from azure portal 
+az aks update --resource-group inventoryappresource --name inventory-aks-cluster --attach-acr waainventoryacr
+
+->Kubernetes Deployment
+A deployment in kubernetes manages the creation,scaling, and updating of Pod,ensuring the application runs as specified.
+It automates rolling updates,rollbacks,and scaling to maintain the desired state of the application.
+
+-> Apply Deployment
+Go to folder wher deployment file exist and run that command "kubectl apply -f deployment.yaml"
+Decribe Deployment -> kubectl describe deployment inventory-deployment
+
+-> Kubernetes Service
+Service in Kubernetes provides a stable network endpoint for a set of pods, allowing consistent access through a fixed IP and DNS Name
+It handles load balanceing and can be configured for internal or external access.
+
+-> Apply/Create Service
+ kubectl apply -f inventory.service.yaml

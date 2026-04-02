@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-deployment
+  labels:
+    app: inventory-demo-app
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-demo-app
+  template:
+    metadata:
+      labels:
+        app: inventory-demo-app
+    spec:
+      containers:
+        - name: inventory-demo-backend
+          image: waainventoryacr.azurecr.io/inventory-demo-backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
