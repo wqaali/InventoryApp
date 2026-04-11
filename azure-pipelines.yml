@@ -33,7 +33,8 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        dockerfile: $(Build.SourcesDirectory)/LiveStock/Dockerfile
+        dockerfile: $(dockerfilePath)
+        buildContext: '$(Build.SourcesDirectory)'
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
