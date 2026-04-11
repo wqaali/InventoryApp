@@ -13,10 +13,10 @@ namespace LiveStockBL.Services
     {
         private readonly List<Stock> _stocks = new()
     {
-        new Stock{ Id=1, Symbol="LG Laptop 548", Price=180,Quantity=2 },
-        new Stock{ Id=2, Symbol="Samsung Wath 6", Price=320,Quantity=5 },
-        new Stock{ Id=3, Symbol="Sony XM500", Price=140,Quantity=10 },
-        new Stock{ Id=4, Symbol="XYZ", Price=250,Quantity=6 }
+        new Stock{ Id=1, Symbol="LG Laptop 548", Price1=180,Quantity=2 },
+        new Stock{ Id=2, Symbol="Samsung Wath 6", Price1=320,Quantity=5 },
+        new Stock{ Id=3, Symbol="Sony XM500", Price1=140,Quantity=10 },
+        new Stock{ Id=4, Symbol="XYZ", Price1=250,Quantity=6 }
     };
         public List<Stock> GetStocks()
         {
