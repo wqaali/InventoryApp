@@ -1,3 +1,12 @@
+Docker is an open-source platform for developing, shipping, and running applications using containers.
+ It packages an application and all its dependencies (code, runtime, system tools, libraries, and settings) 
+ into a single, standardized, isolated unit, ensuring it runs consistently across any environment, from a developer's laptop to the cloud.
+ 
+ A dockerfile is a script file that contains a set of instructions used to create a docker image.
+ 
+Kubernetes is an open-source container orchestration platform. It helps in automating the deployment, 
+scaling, and management of containerized applications. For example, if I have multiple Docker containers running across servers,
+Kubernetes ensures they are running properly, can scale them up or down based on load, and can automatically recover if something fails.
 
 az login --tenant e156bffc-5023-4c62-a5d1-2fa5482bf73a
 
@@ -5,13 +14,7 @@ az login --tenant e156bffc-5023-4c62-a5d1-2fa5482bf73a
 az group create --name inventoryappresource --location "South India"
 resourcegroup: inventoryappresource
 
-Docker is an open-source platform for developing, shipping, and running applications using containers.
- It packages an application and all its dependencies (code, runtime, system tools, libraries, and settings) 
- into a single, standardized, isolated unit, ensuring it runs consistently across any environment, from a developer's laptop to the cloud.
- 
-Kubernetes is an open-source container orchestration platform. It helps in automating the deployment, 
-scaling, and management of containerized applications. For example, if I have multiple Docker containers running across servers,
-Kubernetes ensures they are running properly, can scale them up or down based on load, and can automatically recover if something fails.
+
 
 -> Created Container Registry
 az acr create --resource-group inventoryappresource --name waainventoryacr --sku Basic

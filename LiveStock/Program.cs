@@ -44,12 +44,11 @@ namespace LiveStock
                 app.UseSwaggerUI();
             }
             app.UseCors("FrontEndCors");
-            app.UseMiddleware<FailureMiddleWare>();
+            app.UseFailureHandlingMiddleware();
             //app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
             app.MapHub<StockHub>("/stockhub");
-
             app.Run();
         }
     }

@@ -26,6 +26,15 @@ namespace LiveStockBL.MiddleWare
             }
 
             await _next(context);
+        }        
+    }
+
+    // Extension method used to add the middleware to the HTTP request pipeline.
+    public static class FailureHandlingMiddleWareExtension
+    {
+        public static IApplicationBuilder UseFailureHandlingMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<FailureMiddleWare>();
         }
     }
 }
