@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: inventory-demo-backend
-          image: waainventoryacr.azurecr.io/inventory-demo-backend:latest
+          image: waainventoryacr.azurecr.io/wqaaliinventoryapp:latest
           ports:
             - containerPort: 8080
           env:
